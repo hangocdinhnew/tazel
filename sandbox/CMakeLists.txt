@@ -13,3 +13,7 @@ target_include_directories(Sandbox
 )
 
 target_link_libraries(Sandbox PUBLIC Tazel)
+
+if (NOT MSVC)
+  target_link_libraries(Sandbox -static)
+endif()
