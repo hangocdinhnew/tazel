@@ -12,8 +12,8 @@ target_include_directories(Sandbox
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 )
 
-target_link_libraries(Sandbox PUBLIC Tazel)
+target_link_libraries(Sandbox PRIVATE Tazel)
 
 if (NOT MSVC)
-  target_link_libraries(Sandbox -static)
+  target_link_libraries(Sandbox PRIVATE -static)
 endif()
