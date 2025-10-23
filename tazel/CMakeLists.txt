@@ -3,8 +3,10 @@ add_library(Tazel STATIC)
 target_sources(Tazel
   PRIVATE
   src/Tazel/Application.cpp
+  src/Tazel/Log.cpp
 
   PUBLIC
+  include/Tazel/Log.hpp
   include/Tazel/Application.hpp
   include/Tazel/EntryPoint.hpp
   include/Tazel.hpp
