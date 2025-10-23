@@ -14,6 +14,6 @@ target_include_directories(Sandbox
 
 target_link_libraries(Sandbox PRIVATE Tazel)
 
-if (NOT MSVC)
+if (MINGW)
   target_link_libraries(Sandbox PRIVATE -static)
 endif()
