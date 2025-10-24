@@ -9,6 +9,12 @@ target_sources(Tazel
   include/Tazel/Log.hpp
   include/Tazel/Application.hpp
   include/Tazel/EntryPoint.hpp
+
+  include/Tazel/Events/Event.hpp
+  include/Tazel/Events/KeyEvent.hpp
+  include/Tazel/Events/MouseEvent.hpp
+  include/Tazel/Events/ApplicationEvent.hpp
+  
   include/Tazel.hpp
 )
 
