@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Tazel/Events/Event.hpp"
+#include "Tazel/Window.hpp"
 
 namespace Tazel {
   class Application {
@@ -11,6 +12,8 @@ namespace Tazel {
     void Run();
 
   private:
+    std::unique_ptr<Window> m_Window;
+    bool m_Running = true;
   };
 
   Application* CreateApplication();
