@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #include "Tazel/Events/Event.hpp"
 #include "Tazel/Window.hpp"
 
