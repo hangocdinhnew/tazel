@@ -12,7 +12,7 @@ namespace Tazel {
     SDLWindow(const WindowProps& props);
     virtual ~SDLWindow();
     
-    void OnUpdate(bool& isRunning) override;
+    void OnUpdate() override;
     
     inline unsigned int GetWidth() const override { return m_Data.Width; }
     inline unsigned int GetHeight() const override { return m_Data.Height; }

@@ -14,23 +14,24 @@ namespace Tazel {
     EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
     protected:
 
-    KeyEvent(int keycode) : m_KeyCode(keycode) {}
+    KeyEvent(int scancode, int keycode) : m_ScanCode(scancode), m_KeyCode(keycode) {}
 
+    int m_ScanCode;
     int m_KeyCode;
   };
 
   class KeyPressedEvent : public KeyEvent
   {
   public:
-    KeyPressedEvent(int keycode, int repeatCount)
-      : KeyEvent(keycode), m_RepeatCount(repeatCount) {}
+    KeyPressedEvent(int scancode, int keycode, int repeatCount)
+      : KeyEvent(scancode, keycode), m_RepeatCount(repeatCount) {}
 
     inline int GetRepeatCount() const { return m_RepeatCount; }
 
     std::string ToString() const override
     {
       std::stringstream ss;
-      ss << "KeyPressedEvent: " << m_KeyCode << " (" << m_RepeatCount << " repeats)";
+      ss << "KeyPressedEvent: " << m_KeyCode << " keycode, " << m_ScanCode << " scancode" << " (" << m_RepeatCount << " repeats)";
       return ss.str();
     }
 
@@ -42,13 +43,13 @@ namespace Tazel {
   class KeyReleasedEvent : public KeyEvent
   {
   public:
-    KeyReleasedEvent(int keycode)
-      : KeyEvent(keycode) {}
+    KeyReleasedEvent(int scancode, int keycode)
+      : KeyEvent(scancode, keycode) {}
 
     std::string ToString() const override
     {
       std::stringstream ss;
-      ss << "KeyReleasedEvent: " << m_KeyCode;
+      ss << "KeyReleasedEvent: " << m_KeyCode << " keycode, " << m_ScanCode << " scancode";
       return ss.str();
     }
 

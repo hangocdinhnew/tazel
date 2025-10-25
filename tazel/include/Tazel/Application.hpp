@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include "Tazel/Events/Event.hpp"
+#include "Tazel/Events/ApplicationEvent.hpp"
 #include "Tazel/Window.hpp"
 
 namespace Tazel {
@@ -13,7 +13,11 @@ namespace Tazel {
 
     void Run();
 
+    void OnEvent(Event& e);
+
   private:
+    bool OnWindowClose(WindowCloseEvent& e);
+    
     std::unique_ptr<Window> m_Window;
     bool m_Running = true;
   };
