@@ -11,6 +11,9 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 
 # Deps
 add_subdirectory(Libraries/spdlog)
+
+set(SDL_SHARED OFF)
+set(SDL_STATIC ON)
 add_subdirectory(Libraries/SDL)
 
 add_subdirectory(tazel)
