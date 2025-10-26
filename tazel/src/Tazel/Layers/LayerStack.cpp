@@ -1,3 +1,5 @@
+#include <algorithm>
+
 #include "Tazel/Layers/LayerStack.hpp"
 
 namespace Tazel {
