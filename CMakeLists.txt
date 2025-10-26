@@ -9,6 +9,10 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
+if (MSVC)
+  message(FATAL "MSVC is no longer supported! Use MSYS2 (Specifically MINGW)!")
+endif()
+
 # Deps
 add_subdirectory(Libraries/spdlog)
 
