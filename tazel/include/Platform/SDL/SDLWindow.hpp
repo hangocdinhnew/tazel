@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Tazel/Window.hpp"
-
 #include <SDL3/SDL.h>
+
+#include "Tazel/Base/Window.hpp"
 
 namespace Tazel {
   
@@ -18,6 +18,8 @@ namespace Tazel {
     inline unsigned int GetHeight() const override { return m_Data.Height; }
     
     inline void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; }
+
+    void* GetWindow() const override { return m_Window; }
 
   private:
     virtual void Init(const WindowProps& props);

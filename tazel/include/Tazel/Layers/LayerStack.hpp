@@ -2,7 +2,7 @@
 
 #include <vector>
 
-#include "Tazel/Layer.hpp"
+#include "Tazel/Layers/Layer.hpp"
 
 namespace Tazel {
   

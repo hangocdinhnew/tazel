@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Tazel/Core.h"
+#include "Tazel/Base/Base.h"
 
 #include <string>
 #include <functional>

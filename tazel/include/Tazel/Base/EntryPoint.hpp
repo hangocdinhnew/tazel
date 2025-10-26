@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Tazel/Log.hpp"
-#include "Tazel/Application.hpp"
+#include "Tazel/Base/Log.hpp"
+#include "Tazel/Base/Application.hpp"
 
 int main(int argc, char** argv)
 {

@@ -1,4 +1,4 @@
-#include "Tazel/Log.hpp"
+#include "Tazel/Base/Log.hpp"
 
 #include "Tazel/Events/ApplicationEvent.hpp"
 #include "Tazel/Events/MouseEvent.hpp"

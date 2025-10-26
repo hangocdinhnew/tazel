@@ -1,6 +1,5 @@
-#include "Tazel/Application.hpp"
-
-#include "Tazel/Log.hpp"
+#include "Tazel/Base/Log.hpp"
+#include "Tazel/Base/Application.hpp"
 
 #include "Platform/SDL/SDLWindow.hpp"
 

@@ -3,8 +3,9 @@
 #include <memory>
 
 #include "Tazel/Events/ApplicationEvent.hpp"
-#include "Tazel/Window.hpp"
-#include "Tazel/LayerStack.hpp"
+#include "Tazel/Base/Window.hpp"
+
+#include "Tazel/Layers/LayerStack.hpp"
 
 namespace Tazel {
   class Application {
