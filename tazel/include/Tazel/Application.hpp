@@ -4,6 +4,7 @@
 
 #include "Tazel/Events/ApplicationEvent.hpp"
 #include "Tazel/Window.hpp"
+#include "Tazel/LayerStack.hpp"
 
 namespace Tazel {
   class Application {
@@ -15,11 +16,15 @@ namespace Tazel {
 
     void OnEvent(Event& e);
 
+    void PushLayer(Layer* layer);
+    void PushOverlay(Layer* layer);
+
   private:
     bool OnWindowClose(WindowCloseEvent& e);
     
     std::unique_ptr<Window> m_Window;
     bool m_Running = true;
+    LayerStack m_LayerStack;
   };
 
   Application* CreateApplication();

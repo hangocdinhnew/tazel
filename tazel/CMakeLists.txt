@@ -6,11 +6,17 @@ target_sources(Tazel
   src/Platform/SDL/SDLWindow.cpp
   src/Tazel/Application.cpp
 
+  src/Tazel/Layer.cpp
+  src/Tazel/LayerStack.cpp
+
   PUBLIC
   include/Tazel/Log.hpp
   include/Tazel/Application.hpp
   include/Tazel/EntryPoint.hpp
   include/Tazel/Window.hpp
+
+  include/Tazel/Layer.hpp
+  include/Tazel/LayerStack.hpp
 
   include/Tazel/Events/Event.hpp
   include/Tazel/Events/KeyEvent.hpp
