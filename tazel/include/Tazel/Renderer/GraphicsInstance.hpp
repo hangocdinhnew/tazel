@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #include "Tazel/Base/Window.hpp"
 
 namespace Tazel {
