@@ -20,5 +20,17 @@ set(SDL_SHARED OFF)
 set(SDL_STATIC ON)
 add_subdirectory(Libraries/SDL)
 
+macro(tazel_files_append)
+  file(GLOB_RECURSE FILES_APPEND CONFIGURE_DEPENDS ${ARGV})
+  list(APPEND ${ARGV0} ${FILES_APPEND})
+endmacro()
+
+macro(tazel_sources_append)
+  tazel_files_append(${ARGV0} ${ARGV1}/*.h)
+  tazel_files_append(${ARGV0} ${ARGV1}/*.hpp)
+  tazel_files_append(${ARGV0} ${ARGV1}/*.c)
+  tazel_files_append(${ARGV0} ${ARGV1}/*.cpp)
+endmacro()
+
 add_subdirectory(tazel)
 add_subdirectory(sandbox)

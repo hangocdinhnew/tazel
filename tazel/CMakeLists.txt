@@ -1,41 +1,7 @@
-add_library(Tazel STATIC)
+tazel_sources_append(Tazel_LIB_SOURCES "src/")
+tazel_sources_append(Tazel_LIB_SOURCES "include/")
 
-target_sources(Tazel
-  PRIVATE
-  src/Tazel/Base/Log.cpp
-  src/Tazel/Base/Application.cpp
-
-  src/Platform/SDL/SDLWindow.cpp
-
-  src/Tazel/Renderer/GraphicsInstance.cpp
-  src/Platform/SDL/SDLInstance.cpp
-
-  src/Tazel/Layers/Layer.cpp
-  src/Tazel/Layers/LayerStack.cpp
-
-  PUBLIC
-  include/Tazel/Base/Log.hpp
-  include/Tazel/Base/Application.hpp
-  include/Tazel/Base/EntryPoint.hpp
-
-  include/Tazel/Base/Window.hpp
-  include/Platform/SDL/SDLWindow.hpp
-
-  include/Tazel/Layers/Layer.hpp
-  include/Tazel/Layers/LayerStack.hpp
-
-  include/Tazel/Events/Event.hpp
-  include/Tazel/Events/KeyEvent.hpp
-  include/Tazel/Events/MouseEvent.hpp
-  include/Tazel/Events/ApplicationEvent.hpp
-
-  include/Tazel/Renderer/RendererAPI.hpp
-
-  include/Tazel/Renderer/GraphicsInstance.hpp
-  include/Platform/SDL/SDLInstance.hpp
-
-  include/Tazel.hpp
-)
+add_library(Tazel STATIC "${Tazel_LIB_SOURCES}")
 
 target_include_directories(Tazel
     PUBLIC
