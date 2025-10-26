@@ -2,6 +2,7 @@
 #include "Tazel/Base/Application.hpp"
 
 #include "Platform/SDL/SDLWindow.hpp"
+#include "Platform/SDL/SDLInstance.hpp"
 
 namespace Tazel {
 
@@ -11,6 +12,9 @@ namespace Tazel {
   {
     m_Window = std::make_unique<SDLWindow>(WindowProps());
     m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+
+    m_GraphicsInstance = GraphicsInstance::Create(m_Window.get());
+    m_GraphicsInstance->Init();
   }
   
   Application::~Application() {}

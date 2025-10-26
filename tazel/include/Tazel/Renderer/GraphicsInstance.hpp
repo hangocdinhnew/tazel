@@ -1,16 +1,16 @@
 #pragma once
 
-namespace Hazel {
+#include "Tazel/Base/Window.hpp"
+
+namespace Tazel {
   
-  class GraphicsContext
-  {
+  class GraphicsInstance {
   public:
-    virtual ~GraphicsContext() = default;
+    virtual ~GraphicsInstance() = default;
     
     virtual void Init() = 0;
-    virtual void SwapBuffers() = 0;
-    
-    static Scope<GraphicsContext> Create(void* window);
+
+    static std::unique_ptr<GraphicsInstance> Create(Window* Window);
   };
   
 }

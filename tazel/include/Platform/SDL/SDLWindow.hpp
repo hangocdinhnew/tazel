@@ -19,7 +19,7 @@ namespace Tazel {
     
     inline void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; }
 
-    void* GetWindow() const override { return m_Window; }
+    SDL_Window* GetWindow() const { return m_Window; }
 
   private:
     virtual void Init(const WindowProps& props);

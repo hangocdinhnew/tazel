@@ -7,6 +7,9 @@ target_sources(Tazel
 
   src/Platform/SDL/SDLWindow.cpp
 
+  src/Tazel/Renderer/GraphicsInstance.cpp
+  src/Platform/SDL/SDLInstance.cpp
+
   src/Tazel/Layers/Layer.cpp
   src/Tazel/Layers/LayerStack.cpp
 
@@ -14,7 +17,9 @@ target_sources(Tazel
   include/Tazel/Base/Log.hpp
   include/Tazel/Base/Application.hpp
   include/Tazel/Base/EntryPoint.hpp
+
   include/Tazel/Base/Window.hpp
+  include/Platform/SDL/SDLWindow.hpp
 
   include/Tazel/Layers/Layer.hpp
   include/Tazel/Layers/LayerStack.hpp
@@ -24,7 +29,10 @@ target_sources(Tazel
   include/Tazel/Events/MouseEvent.hpp
   include/Tazel/Events/ApplicationEvent.hpp
 
-  include/Platform/SDL/SDLWindow.hpp
+  include/Tazel/Renderer/RendererAPI.hpp
+
+  include/Tazel/Renderer/GraphicsInstance.hpp
+  include/Platform/SDL/SDLInstance.hpp
 
   include/Tazel.hpp
 )

@@ -30,8 +30,6 @@ namespace Tazel {
     virtual unsigned int GetWidth() const = 0;
     virtual unsigned int GetHeight() const = 0;
 
-    virtual void* GetWindow() const = 0;
-    
     virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
   };
   
