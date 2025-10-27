@@ -6,8 +6,8 @@
 
 #ifdef TZ_ENABLE_ASSERTS
 
-#define TZ_ASSERT(x, ...) { if(!(x)) { TZ_ERROR(__VA_ARGS__);  raise(SIGTRAP); } }
-#define TZ_CORE_ASSERT(x, ...) { if(!(x)) { TZ_CORE_ERROR(__VA_ARGS__);  raise(SIGTRAP); } }
+#define TZ_ASSERT(x, ...) { if(!(x)) { TZ_ERROR(__VA_ARGS__);  __builtin_trap(); } }
+#define TZ_CORE_ASSERT(x, ...) { if(!(x)) { TZ_CORE_ERROR(__VA_ARGS__);  __builtin_trap(); } }
 
 #else
 
