@@ -28,7 +28,7 @@ namespace Tazel {
       m_Window->OnUpdate();
 
       m_Renderer->Acquire();
-      m_Renderer->ClearColor(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
+      m_Renderer->ClearColor(glm::vec4(0.5f, 0.5f, 0.5f, 1.0f));
       m_Renderer->Swapbuffers();
     }
   }

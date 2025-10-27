@@ -36,7 +36,7 @@ namespace Tazel {
   {
     SDL_GPUColorTargetInfo colorTargetInfo{};
     colorTargetInfo.texture = m_SCTexture;
-    colorTargetInfo.clear_color = (SDL_FColor) { 255.0f, 255.0f, 255.0f, 255.0f };
+    colorTargetInfo.clear_color = (SDL_FColor) { color.r, color.g, color.b, color.a };
     colorTargetInfo.load_op = SDL_GPU_LOADOP_CLEAR;
     colorTargetInfo.store_op = SDL_GPU_STOREOP_STORE;
 
