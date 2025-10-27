@@ -1,3 +1,4 @@
+#include "Tazel/Base/Log.hpp"
 #include "Tazel/Renderer/RendererAPI.hpp"
 #include "Platform/SDL/SDLRenderer.hpp"
 
