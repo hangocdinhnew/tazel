@@ -10,3 +10,4 @@ target_include_directories(Tazel
 
 target_link_libraries(Tazel PUBLIC SDL3::SDL3)
 target_link_libraries(Tazel PUBLIC spdlog::spdlog)
+target_link_libraries(Tazel PUBLIC glm::glm)

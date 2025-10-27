@@ -15,7 +15,7 @@ namespace Tazel {
     void Init() override;
     void Shutdown();
 
-    SDL_GPUDevice* getGPUDevice() { return m_GPUDevice; }
+    SDL_GPUDevice* GetGPUDevice() { return m_GPUDevice; }
 
   private:
     Window* m_WindowHandle;

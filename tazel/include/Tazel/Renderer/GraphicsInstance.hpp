@@ -11,8 +11,6 @@ namespace Tazel {
     virtual ~GraphicsInstance() = default;
     
     virtual void Init() = 0;
-
-    static std::unique_ptr<GraphicsInstance> Create(Window* Window);
   };
   
 }

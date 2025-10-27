@@ -20,6 +20,8 @@ set(SDL_SHARED OFF)
 set(SDL_STATIC ON)
 add_subdirectory(Libraries/SDL)
 
+add_subdirectory(Libraries/glm)
+
 macro(tazel_files_append)
   file(GLOB_RECURSE FILES_APPEND CONFIGURE_DEPENDS ${ARGV})
   list(APPEND ${ARGV0} ${FILES_APPEND})

@@ -2,7 +2,7 @@
 #include "Tazel/Base/Application.hpp"
 
 #include "Platform/SDL/SDLWindow.hpp"
-#include "Platform/SDL/SDLInstance.hpp"
+#include "Platform/SDL/SDLRenderer.hpp"
 
 namespace Tazel {
 
@@ -13,8 +13,8 @@ namespace Tazel {
     m_Window = std::make_unique<SDLWindow>(WindowProps());
     m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
-    m_GraphicsInstance = GraphicsInstance::Create(m_Window.get());
-    m_GraphicsInstance->Init();
+    m_Renderer = Renderer::Create(m_Window.get());
+    m_Renderer->Init();
   }
   
   Application::~Application() {}
@@ -26,6 +26,10 @@ namespace Tazel {
 	layer->OnUpdate();
       
       m_Window->OnUpdate();
+
+      m_Renderer->Acquire();
+      m_Renderer->ClearColor(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
+      m_Renderer->Swapbuffers();
     }
   }
 
