@@ -1,9 +1,0 @@
-[submodule "Libraries/spdlog"]
-	path = Libraries/spdlog
-	url = https://github.com/gabime/spdlog
-[submodule "Libraries/SDL"]
-	path = Libraries/SDL
-	url = https://github.com/libsdl-org/SDL
-[submodule "Libraries/glm"]
-	path = Libraries/glm
-	url = https://github.com/g-truc/glm

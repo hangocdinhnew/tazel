@@ -1,10 +1,6 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    self = {
-      submodules = true;
-    };
   };
 
   outputs = { self, nixpkgs }:
@@ -15,15 +11,15 @@
     in {
       packages.${system}.default =
         pkgs.${stdenv}.mkDerivation {
-          pname = "ihopethisworks";
+          pname = "tazel";
           version = "0.1.0";
           src = ./.;
 
-          nativeBuildInputs = with pkgs [
+          nativeBuildInputs = with pkgs; [
             cmake
           ];
 
-          buildInputs = with pkgs [
+          buildInputs = with pkgs; [
             glm
             sdl3
             spdlog
