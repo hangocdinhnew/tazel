@@ -8,6 +8,6 @@ target_include_directories(Tazel
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 )
 
-target_link_libraries(Tazel PUBLIC SDL3::SDL3)
-target_link_libraries(Tazel PUBLIC PkgConfig::spdlog)
+target_link_libraries(Tazel PUBLIC PkgConfig::SDL3)
+target_link_libraries(Tazel PUBLIC spdlog::spdlog)
 target_link_libraries(Tazel PUBLIC glm::glm)

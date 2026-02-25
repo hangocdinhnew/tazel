@@ -17,10 +17,12 @@
 
           nativeBuildInputs = with pkgs; [
             cmake
+            pkg-config
           ];
 
           buildInputs = with pkgs; [
             glm
+            alsa-lib
             sdl3
             spdlog
           ];
