@@ -25,16 +25,30 @@
             alsa-lib
             sdl3
             spdlog
+            jack2
+            pipewire
+            pulseaudio
+            libX11
+            libxcb
+            libxau
+            libxdmcp
+            libxext
+            libxcursor
+            libxrender
+            libxfixes
+            libxi
+            libxrandr
+            libxscrnsaver
+            libxtst
+            libdrm
+            libgbm
+            wayland
+            libffi
+            libGL
+            libxkbcommon
+            libdecor
+            libusb1
           ];
-
-          buildPhase = ''
-               cc -o main main.c
-          '';
-
-          installPhase = ''
-            mkdir -p $out/bin
-            cp main $out/bin/
-          '';
         };
     };
 }

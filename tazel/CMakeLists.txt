@@ -11,3 +11,9 @@ target_include_directories(Tazel
 target_link_libraries(Tazel PUBLIC PkgConfig::SDL3)
 target_link_libraries(Tazel PUBLIC spdlog::spdlog)
 target_link_libraries(Tazel PUBLIC glm::glm)
+
+install(TARGETS Tazel
+        ARCHIVE DESTINATION lib)
+
+install(DIRECTORY include/
+        DESTINATION include)

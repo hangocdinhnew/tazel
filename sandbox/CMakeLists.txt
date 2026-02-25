@@ -17,3 +17,6 @@ target_link_libraries(Sandbox PRIVATE Tazel)
 if (MINGW)
   target_link_libraries(Sandbox PRIVATE -static)
 endif()
+
+install(TARGETS Sandbox
+        RUNTIME DESTINATION bin)
