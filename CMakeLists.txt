@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.20)
 
 project(Tazel LANGUAGES C CXX)
 
+find_package(PkgConfig REQUIRED)
+
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -14,13 +16,11 @@ if (MSVC)
 endif()
 
 # Deps
-add_subdirectory(Libraries/spdlog)
+find_package(spdlog CONFIG REQUIRED)
 
-set(SDL_SHARED OFF)
-set(SDL_STATIC ON)
-add_subdirectory(Libraries/SDL)
+pkg_check_modules(SDL3 REQUIRED IMPORTED_TARGET sdl3)
 
-add_subdirectory(Libraries/glm)
+find_package(glm CONFIG REQUIRED)
 
 macro(tazel_files_append)
   file(GLOB_RECURSE FILES_APPEND CONFIGURE_DEPENDS ${ARGV})
