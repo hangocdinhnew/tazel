@@ -51,5 +51,10 @@
             libusb1
           ];
         };
+
+      devShells.${system}.default =
+        pkgs.mkShell {
+          inputsFrom = [ self.packages.${system}.default ];
+        };
     };
 }

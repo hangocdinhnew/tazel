@@ -6,6 +6,20 @@
 
 namespace Tazel {
 
+  class SDLPass : public RenderPass {
+  public:
+    SDL_GPURenderPass* render_pass;
+  };
+
+  class SDLFrame : public RendererFrame {
+  public:
+    SDL_GPUCommandBuffer* CmdBuf = nullptr;
+    SDL_GPUTexture* SCTexture = nullptr;
+
+    std::unique_ptr<RenderPass> BeginRenderPass(const RenderPassDesc& desc) override;
+    void EndRenderPass(RenderPass& pass) override;
+  };
+
   class SDLRenderer : public Renderer {
   public:
     SDLRenderer(Window* Window);
@@ -13,21 +27,14 @@ namespace Tazel {
 
     void Init() override;
 
-    void Acquire() override;
-    void ClearColor(const glm::vec4& color) override;
-    void Swapbuffers() override;
-
-    SDL_GPUCommandBuffer* getCmdBuf() { return m_CmdBuf; }
-    SDL_GPUTexture* getSCTexture() { return m_SCTexture; }
+    std::unique_ptr<RendererFrame> BeginFrame() override;
+    void EndFrame(RendererFrame& baseFrame) override;
 
   private:
     Window* m_WindowHandle;
     SDLWindow* m_SDLWindow;
     
     std::unique_ptr<SDLInstance> m_Instance;
-    
-    SDL_GPUCommandBuffer* m_CmdBuf;
-    SDL_GPUTexture* m_SCTexture;
   };
   
 }

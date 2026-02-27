@@ -27,9 +27,18 @@ namespace Tazel {
       
       m_Window->OnUpdate();
 
-      m_Renderer->Acquire();
-      m_Renderer->ClearColor(glm::vec4(0.5f, 0.5f, 0.5f, 1.0f));
-      m_Renderer->Swapbuffers();
+      auto frame = m_Renderer->BeginFrame();
+
+      RenderPassDesc desc;
+      
+      desc.colorAttachments.push_back({
+	  .clearValue = {1.0f, 1.0f, 1.0f, 1.0f},
+	});
+
+      auto rp = frame->BeginRenderPass(desc);
+      frame->EndRenderPass(*rp);
+      
+      m_Renderer->EndFrame(*frame);
     }
   }
 
