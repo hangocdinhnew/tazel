@@ -43,7 +43,7 @@ namespace Tazel {
     frame->CmdBuf = SDL_AcquireGPUCommandBuffer(m_Instance->GetGPUDevice());
     TZ_CORE_ASSERT(frame->CmdBuf, "Failed to acquire Command Buffer! Reason: '{}'", SDL_GetError());
     
-    if (!SDL_WaitAndAcquireGPUSwapchainTexture(frame->CmdBuf, m_SDLWindow->GetWindow(), &frame->SCTexture, nullptr, nullptr))
+    if (!SDL_WaitAndAcquireGPUSwapchainTexture(frame->CmdBuf, m_SDLWindow->GetWindow(), &frame->BackBuffer, nullptr, nullptr))
       TZ_CORE_ASSERT(false, "Failed to wait and acquire Swapchain texture! Reason: '{}'", SDL_GetError());
     
     return frame;
@@ -65,7 +65,7 @@ namespace Tazel {
       const auto& attachment = desc.colorAttachments[i];
       
       SDL_GPUColorTargetInfo info{};
-      info.texture = SCTexture;
+      info.texture = BackBuffer;
       info.mip_level = 0;
       info.layer_or_depth_plane = 0;
       
