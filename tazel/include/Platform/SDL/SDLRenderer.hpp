@@ -6,6 +6,11 @@
 
 namespace Tazel {
 
+  class SDLTexture : public RenderTexture {
+  public:
+    SDL_GPUTexture* Texture = nullptr;
+  };
+
   class SDLPass : public RenderPass {
   public:
     SDL_GPURenderPass* render_pass;
@@ -27,10 +32,16 @@ namespace Tazel {
 
     void Init() override;
 
+    std::unique_ptr<RenderTexture> CreateTexture(const TextureDesc& desc) override;
+    void DestroyTexture(RenderTexture& texture) override;
+
     std::unique_ptr<RendererFrame> BeginFrame() override;
     void EndFrame(RendererFrame& baseFrame) override;
 
   private:
+    unsigned int w = 0;
+    unsigned int h = 0;
+    
     Window* m_WindowHandle;
     SDLWindow* m_SDLWindow;
     
