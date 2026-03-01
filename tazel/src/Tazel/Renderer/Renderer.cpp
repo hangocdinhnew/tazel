@@ -3,26 +3,26 @@
 
 #include "Tazel/Renderer/Renderer.hpp"
 
-enum class RendererAPI {
+enum class RendererEnum {
   None = 0,
   SDLGPU,
 };
 
-static RendererAPI GetRendererAPI() {
-  return RendererAPI::SDLGPU;
+static RendererEnum GetRendererEnum() {
+  return RendererEnum::SDLGPU;
 }
 
 namespace Tazel {
 
-  static RendererAPI s_RAPI = GetRendererAPI(); 
+  static RendererEnum s_RAPI = GetRendererEnum(); 
   
   std::unique_ptr<Renderer> Renderer::Create(Window* Window) {
     switch (s_RAPI) {
-    case RendererAPI::None: { TZ_CORE_ASSERT(false, "RendererAPI::None is currently not supported"); } return nullptr;
-    case RendererAPI::SDLGPU: return std::make_unique<SDLRenderer>(Window);
+    case RendererEnum::None: { TZ_CORE_ASSERT(false, "RendererEnum::None is currently not supported"); } return nullptr;
+    case RendererEnum::SDLGPU: return std::make_unique<SDLRenderer>(Window);
     }
 
-    TZ_CORE_ASSERT(false, "Unknown RendererAPI!");
+    TZ_CORE_ASSERT(false, "Unknown RendererEnum!");
     return nullptr;
   }
 
