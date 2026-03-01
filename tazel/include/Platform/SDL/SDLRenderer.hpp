@@ -3,27 +3,10 @@
 #include "Tazel/Renderer/Renderer.hpp"
 #include "Platform/SDL/SDLWindow.hpp"
 #include "Platform/SDL/SDLInstance.hpp"
+#include "Platform/SDL/SDLTexture.hpp"
+#include "Platform/SDL/SDLFrame.hpp"
 
 namespace Tazel {
-
-  class SDLTexture : public RenderTexture {
-  public:
-    SDL_GPUTexture* Texture = nullptr;
-  };
-
-  class SDLPass : public RenderPass {
-  public:
-    SDL_GPURenderPass* render_pass;
-  };
-
-  class SDLFrame : public RendererFrame {
-  public:
-    SDL_GPUCommandBuffer* CmdBuf = nullptr;
-    SDL_GPUTexture* BackBuffer = nullptr;
-
-    std::unique_ptr<RenderPass> BeginRenderPass(const RenderPassDesc& desc) override;
-    void EndRenderPass(RenderPass& pass) override;
-  };
 
   class SDLRenderer : public Renderer {
   public:

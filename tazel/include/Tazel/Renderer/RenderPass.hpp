@@ -1,0 +1,51 @@
+#pragma once
+
+#include <glm/glm.hpp>
+
+#include "Tazel/Renderer/RenderTexture.hpp"
+
+namespace Tazel {
+
+  enum class LoadOp {
+    Load,
+    Clear,
+    DontCare
+  };
+  
+  enum class StoreOp {
+    Store,
+    DontCare
+  };
+  
+  struct ColorAttachmentDesc {
+    RenderTexture* texture = nullptr;
+    
+    LoadOp loadOp = LoadOp::Clear;
+    StoreOp storeOp = StoreOp::Store;
+    
+    glm::vec4 clearValue = {0, 0, 0, 1};
+  };
+  
+  struct DepthStencilAttachmentDesc {
+    LoadOp depthLoadOp = LoadOp::Load;
+    StoreOp depthStoreOp = StoreOp::DontCare;
+    
+    LoadOp stencilLoadOp = LoadOp::DontCare;
+    StoreOp stencilStoreOp = StoreOp::DontCare;
+    
+    float clearDepth = 1.0f;
+    uint8_t clearStencil = 0;
+  };
+  
+  struct RenderPassDesc {
+    std::vector<ColorAttachmentDesc> colorAttachments;
+    std::optional<DepthStencilAttachmentDesc> depthStencilAttachment = std::nullopt;
+  };
+
+  class RenderPass {
+  public:
+    virtual ~RenderPass() = default;
+  };
+
+};
+  
