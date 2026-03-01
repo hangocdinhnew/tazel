@@ -9,9 +9,9 @@
 
 namespace Tazel {
   
-  class Renderer {
+  class RendererAPI {
   public:
-    virtual ~Renderer() = default;
+    virtual ~RendererAPI() = default;
     
     virtual void Init() = 0;
     
@@ -21,7 +21,7 @@ namespace Tazel {
     virtual std::unique_ptr<RendererFrame> BeginFrame() = 0;
     virtual void EndFrame(RendererFrame& baseFrame) = 0;
     
-    static std::unique_ptr<Renderer> Create(Window* Window);
+    static std::unique_ptr<RendererAPI> Create(Window* Window);
   };
   
 }

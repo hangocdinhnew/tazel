@@ -1,7 +1,7 @@
 #include "Tazel/Base/Log.hpp"
-#include "Platform/SDL/SDLRenderer.hpp"
+#include "Platform/SDL/SDLRendererAPI.hpp"
 
-#include "Tazel/Renderer/Renderer.hpp"
+#include "Tazel/Renderer/RendererAPI.hpp"
 
 enum class RendererEnum {
   None = 0,
@@ -16,10 +16,10 @@ namespace Tazel {
 
   static RendererEnum s_RAPI = GetRendererEnum(); 
   
-  std::unique_ptr<Renderer> Renderer::Create(Window* Window) {
+  std::unique_ptr<RendererAPI> RendererAPI::Create(Window* Window) {
     switch (s_RAPI) {
     case RendererEnum::None: { TZ_CORE_ASSERT(false, "RendererEnum::None is currently not supported"); } return nullptr;
-    case RendererEnum::SDLGPU: return std::make_unique<SDLRenderer>(Window);
+    case RendererEnum::SDLGPU: return std::make_unique<SDLRendererAPI>(Window);
     }
 
     TZ_CORE_ASSERT(false, "Unknown RendererEnum!");

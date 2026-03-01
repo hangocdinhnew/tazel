@@ -2,7 +2,7 @@
 #include "Tazel/Base/Application.hpp"
 
 #include "Platform/SDL/SDLWindow.hpp"
-#include "Platform/SDL/SDLRenderer.hpp"
+#include "Platform/SDL/SDLRendererAPI.hpp"
 
 namespace Tazel {
 
@@ -13,7 +13,7 @@ namespace Tazel {
     m_Window = std::make_unique<SDLWindow>(WindowProps());
     m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
-    m_Renderer = Renderer::Create(m_Window.get());
+    m_Renderer = RendererAPI::Create(m_Window.get());
     m_Renderer->Init();
   }
   

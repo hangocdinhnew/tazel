@@ -2,15 +2,15 @@
 
 #include "Tazel/Base/Log.hpp"
 
-#include "Platform/SDL/SDLRenderer.hpp"
+#include "Platform/SDL/SDLRendererAPI.hpp"
 
 namespace Tazel {
 
-  SDLRenderer::SDLRenderer(Window* Window) : m_WindowHandle(Window) {
+  SDLRendererAPI::SDLRendererAPI(Window* Window) : m_WindowHandle(Window) {
     TZ_CORE_ASSERT(m_WindowHandle, "Window handle is null!");
   }
   
-  void SDLRenderer::Init() {
+  void SDLRendererAPI::Init() {
     m_Instance = std::make_unique<SDLInstance>(m_WindowHandle);
     m_Instance->Init();
     
@@ -18,7 +18,7 @@ namespace Tazel {
     TZ_CORE_ASSERT(m_SDLWindow, "Failed to get SDL Window!");
   }
   
-  std::unique_ptr<RendererFrame> SDLRenderer::BeginFrame() {
+  std::unique_ptr<RendererFrame> SDLRendererAPI::BeginFrame() {
     auto frame = std::make_unique<SDLFrame>();
     
     frame->CmdBuf = SDL_AcquireGPUCommandBuffer(m_Instance->GetGPUDevice());
@@ -30,13 +30,13 @@ namespace Tazel {
     return frame;
   }
   
-  void SDLRenderer::EndFrame(RendererFrame& baseFrame) {
+  void SDLRendererAPI::EndFrame(RendererFrame& baseFrame) {
     auto& sdlFrame = static_cast<SDLFrame&>(baseFrame);
     
     SDL_SubmitGPUCommandBuffer(sdlFrame.CmdBuf);
   }
 
-  std::unique_ptr<RenderTexture> SDLRenderer::CreateTexture(const TextureDesc& desc) {
+  std::unique_ptr<RenderTexture> SDLRendererAPI::CreateTexture(const TextureDesc& desc) {
     auto sdlTexture = std::make_unique<SDLTexture>();
 
     auto format = desc.format;
@@ -70,7 +70,7 @@ namespace Tazel {
     return sdlTexture;
   }
 
-  void SDLRenderer::DestroyTexture(RenderTexture& texture) {
+  void SDLRendererAPI::DestroyTexture(RenderTexture& texture) {
     auto& sdlTexture = static_cast<SDLTexture&>(texture);
     
     SDL_ReleaseGPUTexture(m_Instance->GetGPUDevice(), sdlTexture.Texture);

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Tazel/Renderer/Renderer.hpp"
+#include "Tazel/Renderer/RendererAPI.hpp"
 #include "Platform/SDL/SDLWindow.hpp"
 #include "Platform/SDL/SDLInstance.hpp"
 #include "Platform/SDL/SDLTexture.hpp"
@@ -8,10 +8,10 @@
 
 namespace Tazel {
 
-  class SDLRenderer : public Renderer {
+  class SDLRendererAPI : public RendererAPI {
   public:
-    SDLRenderer(Window* Window);
-    virtual ~SDLRenderer() = default;
+    SDLRendererAPI(Window* Window);
+    virtual ~SDLRendererAPI() = default;
 
     void Init() override;
 
