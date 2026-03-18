@@ -8,5 +8,6 @@ namespace Tazel {
     virtual ~RendererFrame() = default;
     
     virtual std::unique_ptr<RenderPass> BeginRenderPass(const RenderPassDesc& desc) = 0;
+    virtual void EndRenderPass(RenderPass& pass) = 0;
   };
 };

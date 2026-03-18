@@ -16,8 +16,10 @@ namespace Tazel {
     void Init() override;
 
     std::unique_ptr<RenderTexture> CreateTexture(const TextureDesc& desc) override;
+    void DestroyTexture(RenderTexture& texture) override;
 
     std::unique_ptr<RendererFrame> BeginFrame() override;
+    void EndFrame(RendererFrame& baseFrame) override;
 
   private:
     unsigned int w = 0;
