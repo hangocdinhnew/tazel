@@ -2,7 +2,6 @@
 #include "Tazel/Base/Application.hpp"
 
 #include "Platform/SDL/SDLWindow.hpp"
-#include "Platform/SDL/SDLRendererAPI.hpp"
 
 namespace Tazel {
 
@@ -13,8 +12,8 @@ namespace Tazel {
     m_Window = std::make_unique<SDLWindow>(WindowProps());
     m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
-    m_Renderer = RendererAPI::Create(m_Window.get());
-    m_Renderer->Init();
+    m_Renderer = std::make_unique<Renderer>();
+    m_Renderer->Init(m_Window.get());
   }
   
   Application::~Application() {}
@@ -27,18 +26,10 @@ namespace Tazel {
       
       m_Window->OnUpdate();
 
-      auto frame = m_Renderer->BeginFrame();
+      m_Renderer->SetClearColor({1.0f,1.0f,1.0f,1.0f});
 
-      RenderPassDesc desc;
-      
-      desc.colorAttachments.push_back({
-	  .clearValue = {1.0f, 1.0f, 1.0f, 1.0f},
-	});
-
-      auto rp = frame->BeginRenderPass(desc);
-      frame->EndRenderPass(*rp);
-      
-      m_Renderer->EndFrame(*frame);
+      m_Renderer->Begin();
+      m_Renderer->End();
     }
   }
 

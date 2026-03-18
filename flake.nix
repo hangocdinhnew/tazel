@@ -19,6 +19,7 @@
             cmake
             pkg-config
             ninja
+	    lldb
           ];
 
           buildInputs = with pkgs; [
