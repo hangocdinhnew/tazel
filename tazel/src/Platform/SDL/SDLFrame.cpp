@@ -27,6 +27,10 @@ namespace Tazel {
     return SDL_GPU_STOREOP_STORE;
   }
 
+  SDLFrame::~SDLFrame() {
+    SDL_SubmitGPUCommandBuffer(CmdBuf);
+  }
+
   std::unique_ptr<RenderPass> SDLFrame::BeginRenderPass(const RenderPassDesc& desc) {
     std::vector<SDL_GPUColorTargetInfo> colorInfos;
     colorInfos.reserve(desc.colorAttachments.size());
@@ -92,14 +96,6 @@ namespace Tazel {
     pass->render_pass = sdlPass;
     
     return pass;
-  }
-
-  void SDLFrame::EndRenderPass(RenderPass& pass)
-  {
-    SDLPass& sdlPass = static_cast<SDLPass&>(pass);
-    SDL_EndGPURenderPass(sdlPass.render_pass);
-
-    sdlPass.render_pass = nullptr;
   }
 
 }

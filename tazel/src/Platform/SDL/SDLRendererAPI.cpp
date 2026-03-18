@@ -30,12 +30,6 @@ namespace Tazel {
     return frame;
   }
   
-  void SDLRendererAPI::EndFrame(RendererFrame& baseFrame) {
-    auto& sdlFrame = static_cast<SDLFrame&>(baseFrame);
-    
-    SDL_SubmitGPUCommandBuffer(sdlFrame.CmdBuf);
-  }
-
   std::unique_ptr<RenderTexture> SDLRendererAPI::CreateTexture(const TextureDesc& desc) {
     auto sdlTexture = std::make_unique<SDLTexture>();
 
@@ -66,14 +60,9 @@ namespace Tazel {
     };
 
     sdlTexture->Texture = SDL_CreateGPUTexture(m_Instance->GetGPUDevice(), &createInfo);
+    sdlTexture->Device = m_Instance->GetGPUDevice();
 
     return sdlTexture;
-  }
-
-  void SDLRendererAPI::DestroyTexture(RenderTexture& texture) {
-    auto& sdlTexture = static_cast<SDLTexture&>(texture);
-    
-    SDL_ReleaseGPUTexture(m_Instance->GetGPUDevice(), sdlTexture.Texture);
   }
   
 }

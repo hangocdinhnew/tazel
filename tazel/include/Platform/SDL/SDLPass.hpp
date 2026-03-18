@@ -8,6 +8,8 @@ namespace Tazel {
 
   class SDLPass : public RenderPass {
   public:
+    ~SDLPass() override;
+    
     SDL_GPURenderPass* render_pass;
   };
 

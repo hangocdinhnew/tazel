@@ -35,10 +35,9 @@ namespace Tazel {
 	  .clearValue = {1.0f, 1.0f, 1.0f, 1.0f},
 	});
 
-      auto rp = frame->BeginRenderPass(desc);
-      frame->EndRenderPass(*rp);
-      
-      m_Renderer->EndFrame(*frame);
+      {
+	auto rp = frame->BeginRenderPass(desc);
+      }
     }
   }
 
