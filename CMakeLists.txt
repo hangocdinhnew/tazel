@@ -34,5 +34,9 @@ macro(tazel_sources_append)
   tazel_files_append(${ARGV0} ${ARGV1}/*.cpp)
 endmacro()
 
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+find_package(Python REQUIRED)
+find_package(SLANGC REQUIRED)
+
 add_subdirectory(tazel)
 add_subdirectory(sandbox)

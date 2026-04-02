@@ -19,7 +19,9 @@
             cmake
             pkg-config
             ninja
-	    lldb
+	          lldb
+            python3
+            shader-slang
           ];
 
           buildInputs = with pkgs; [

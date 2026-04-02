@@ -3,6 +3,8 @@ tazel_sources_append(Tazel_LIB_SOURCES "include/")
 
 add_library(Tazel STATIC "${Tazel_LIB_SOURCES}")
 
+embed_slang_shader(Tazel PRIVATE "shader/Basic.slang")
+
 target_include_directories(Tazel
     PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
