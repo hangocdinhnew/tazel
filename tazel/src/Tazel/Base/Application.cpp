@@ -20,6 +20,9 @@ namespace Tazel {
 
   void Application::Run()
   {
+    for (Layer* layer : m_LayerStack)
+      layer->OnRun(*m_Renderer);
+    
     while (m_Running) {
       for (Layer* layer : m_LayerStack)
 	layer->OnUpdate();
@@ -29,6 +32,10 @@ namespace Tazel {
       m_Renderer->SetClearColor({1.0f,1.0f,1.0f,1.0f});
 
       m_Renderer->Begin();
+
+      for (Layer* layer : m_LayerStack)
+	layer->OnRender(*m_Renderer);
+      
       m_Renderer->End();
     }
   }

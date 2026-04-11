@@ -21,6 +21,7 @@
             ninja
 	          lldb
             python3
+            spirv-cross
             shader-slang
           ];
 
@@ -52,6 +53,7 @@
             libxkbcommon
             libdecor
             libusb1
+            vulkan-validation-layers
           ];
         };
 

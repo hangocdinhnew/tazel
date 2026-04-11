@@ -21,6 +21,11 @@ namespace Tazel {
     std::unique_ptr<RendererFrame> BeginFrame() override;
     void EndFrame(RendererFrame& baseFrame) override;
 
+    std::shared_ptr<Pipeline> CreatePipeline(const ShaderDesc& vert, const ShaderDesc& frag, FillMode fillmode = FillMode::Fill) override;
+
+    std::shared_ptr<Buffer> CreateVertexBuffer(const void* data, size_t size) override;
+    std::shared_ptr<Buffer> CreateIndexBuffer(const void* data, size_t size) override;
+
   private:
     unsigned int w = 0;
     unsigned int h = 0;

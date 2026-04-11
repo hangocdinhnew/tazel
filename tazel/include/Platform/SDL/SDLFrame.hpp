@@ -3,6 +3,7 @@
 #include "Tazel/Renderer/RendererFrame.hpp"
 #include "Platform/SDL/SDLWindow.hpp"
 #include "Platform/SDL/SDLInstance.hpp"
+#include "Platform/SDL/SDLPass.hpp"
 
 namespace Tazel {
 

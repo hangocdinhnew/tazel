@@ -42,9 +42,29 @@ namespace Tazel {
     std::optional<DepthStencilAttachmentDesc> depthStencilAttachment = std::nullopt;
   };
 
+  class Pipeline {
+  public:
+    virtual ~Pipeline() = default;
+  };
+
+  class Buffer {
+  public:
+    virtual ~Buffer() = default;
+  };
+
   class RenderPass {
   public:
     virtual ~RenderPass() = default;
+
+    virtual void BindPipeline(Pipeline& pipeline) = 0;
+
+    virtual void BindVertexBuffer(Buffer& buffer) = 0;
+    virtual void BindIndexBuffer(Buffer& buffer) = 0;
+
+    // virtual void SetUniform(const std::string& name, const void* data, size_t size) = 0;
+    // TODO: To be implemented
+
+    virtual void DrawIndexed(uint32_t indexCount) = 0;
   };
 
 };

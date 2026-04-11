@@ -38,5 +38,15 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 find_package(Python REQUIRED)
 find_package(SLANGC REQUIRED)
 
+add_compile_options(
+    -fsanitize=address,undefined,leak
+    -fno-sanitize-recover=all
+    -fno-omit-frame-pointer
+)
+
+add_link_options(
+    -fsanitize=address,undefined,leak
+)
+
 add_subdirectory(tazel)
 add_subdirectory(sandbox)

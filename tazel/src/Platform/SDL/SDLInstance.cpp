@@ -18,6 +18,9 @@ namespace Tazel {
   }
 
   void SDLInstance::Init() {
+    SDL_SetHint(SDL_HINT_RENDER_VULKAN_DEBUG, "1");
+    SDL_SetHint(SDL_HINT_RENDER_GPU_DEBUG, "1");
+    
     m_GPUDevice = SDL_CreateGPUDevice(SDL_GPU_SHADERFORMAT_SPIRV | SDL_GPU_SHADERFORMAT_MSL, true, nullptr);
     TZ_CORE_ASSERT(m_GPUDevice, "Failed to create GPU Device! Reason: '{}'", SDL_GetError());
 

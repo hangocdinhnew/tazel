@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Tazel/Events/Event.hpp"
+#include "Tazel/Base/Log.hpp"
+#include "Tazel/Renderer/Renderer.hpp"
 
 namespace Tazel {
   
@@ -13,6 +15,9 @@ namespace Tazel {
     virtual void OnDetach() {}
     virtual void OnUpdate() {}
     virtual void OnEvent(Event& event) {}
+
+    virtual void OnRun(Renderer& renderer) {}
+    virtual void OnRender(Renderer& renderer) {}
     
     inline const std::string& GetName() const { return m_DebugName; }
   protected:

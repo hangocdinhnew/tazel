@@ -1,11 +1,11 @@
 [shader("fragment")]
-float4 fragMain(float4 pos:SV_Position) : SV_Target
+float4 fragMain() : SV_Target
 {
-  return pos;
+  return float4(0.1, 0.2, 0.3, 1);
 }
 
 [shader("vertex")]
-float4 vertMain(float4 pos) : SV_Position
+float4 vertMain(float3 pos)
 {
-  return pos;
+  return float4(pos, 1.0);
 }
